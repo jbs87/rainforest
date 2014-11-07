@@ -1,1 +1,14 @@
-<h1>Product</h1>
+<%= link_to "New", new_product_path %><br><br>
+<table style="width:100%" border="1">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Price</th>
+	</tr>
+	<tr>
+		<td><%= @product.name %></td>
+		<td><%= @product.description %></td>
+		<td><%= @product.formatted_price %></td>
+	</tr>
+</table>
+
