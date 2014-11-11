@@ -11,6 +11,10 @@ class ProductsController < ApplicationController
     end
   end
 
+    def showcategory
+      @products = Product.where(category: params[:category])
+    end
+
   def new
   	@product = Product.new
   end
@@ -45,6 +49,6 @@ class ProductsController < ApplicationController
 
   private
   def params_checked
-  	params.require(:product).permit(:name, :description, :price_in_cents)
+  	params.require(:product).permit(:name, :description, :price_in_cents, :category)
   end
 end
