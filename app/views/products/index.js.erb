@@ -1,0 +1,5 @@
+$('.pagination').replaceWith('<%= j paginate(@products) %>');
+$('#products').append('<%= j render(@products) %>');
+console.log("page: <%= params[:page] %>");
+console.log("lock:" + lock);
+lock = false;

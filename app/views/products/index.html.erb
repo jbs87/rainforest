@@ -1,3 +1,24 @@
-<h1>Products</h1>
-<%= link_to "New", new_product_path %><br><br>
-<%= render partial: "products", locals:{products: @products } %>
+<h1>Products<small><%= page_entries_info @products %></small></h1>
+<%= link_to "New", new_product_path%><br><br>
+<%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<%= paginate @products %>
+
+<table class="table-bordered table">
+	<thead>
+		<tr>
+			<th class="col-md-3">Name</th>
+			<th class="col-md-3">Description</th>
+			<th class="col-md-3">Price</th>
+			<th class="col-md-3">Category</th>
+		</tr>
+	</thead>
+	<tbody id = "products">
+		<%= render @products %>
+	</tbody>
+</table>
+</div>
+

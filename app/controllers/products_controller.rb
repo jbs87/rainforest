@@ -1,6 +1,15 @@
 class ProductsController < ApplicationController
   def index
-  	@products = Product.all
+    if params[:search]
+      @products = Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%").page(params[:page])
+    else
+  	  @products = Product.order('products.created_at DESC').page(params[:page])
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
@@ -20,6 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    binding.pry
   	@product = Product.new(params_checked)
   	if @product.save
   		redirect_to products_path

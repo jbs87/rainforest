@@ -12,4 +12,18 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap.min
  */
+
+body {
+  background-image:url('<%= asset_path("blurry-lights.jpg") %>');
+}
+
+.table th {
+    background-color: #848484 !important;
+  }
+
+    .table-bordered th,
+  .table-bordered td {
+    border: 2px solid #000000 !important;
+  }

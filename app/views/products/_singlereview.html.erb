@@ -1,0 +1,12 @@
+<div class="review" id="review-<%= review.id %>">
+	<p class="comment">
+		<%= review.comment %>
+	</p>
+	<br>
+	<% if review.user != nil %>
+	<div class = "poster">
+		<em> by <%= review.user.name %></em>
+	</div>
+	Added on: <%= review.created_at %>
+	<% end %>
+</div>

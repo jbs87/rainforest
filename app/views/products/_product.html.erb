@@ -1,0 +1,8 @@
+<tr>
+	<td><%= product.name %></td>
+	<td><%= product.description %></td>
+	<td><%= product.formatted_price %></td>
+	<% if product.category %>
+	<td><%= link_to "#{product.category}", category_products_path(product.category) %></td>
+	<% end %>
+</tr>

@@ -17,9 +17,12 @@
 	<%= yield %>
 	<p class="userinfo">
 	<% if current_user %>
-	Signed in as <%=link_to current_user.name, userprofile_path(current_user) %>.<%= link_to "Log out", session_path("current"), method: :delete %>
+		<%= render partial: 'sessions/loggedin' %>
 	<% else %>
-	<%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+	<%= render partial: 'sessions/form', display: 'none' %>
+	<div id= "log_sign">
+	<%= link_to "Log in", new_session_path, id: "new_link" %> or <%= link_to "Sign up", new_user_path %>
+	</div>
 	<% end %>
 	</p>
 </body>
